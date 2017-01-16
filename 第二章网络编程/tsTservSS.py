@@ -1,17 +1,17 @@
-from socketserver import (TCPServer as TCP, StreamRequestHandler as SRH)
+from socketserver import TCPServer, StreamRequestHandler
 from time import ctime
 
-HOST = '127.0.0.1'
+HOST = ''
 PORT = 21567
 ADDR = (HOST, PORT)
 
 
-class MyRequestHandler(SRH):
+class MyRequestHandler(StreamRequestHandler):
 
     def handle(self):
         print('...connected from:', self.client_address)
         self.wfile.write('[%s] %s' % (ctime(), self.rfile.readline()))
 
-tcpServ = TCP(ADDR, MyRequestHandler)
+tcpServ = TCPServer(ADDR, MyRequestHandler)
 print('waiting fro connection...')
 tcpServ.serve_forever

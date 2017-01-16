@@ -1,3 +1,4 @@
-import chardet
-text=input("随便输入字符").encode()
-print(chardet.detect(text))
+from ftplib import FTP
+f = FTP('ftp.cc.ac.cn')
+f.login('anonymous', 'guido@python.org')
+f.dir()

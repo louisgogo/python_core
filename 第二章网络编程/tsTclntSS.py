@@ -1,6 +1,6 @@
 from socket import *
 
-HOST = '127.0.0.1'
+HOST = 'localhost'
 PORT = 21567
 BUFSIZ = 1024
 ADDR = (HOST, PORT)
