@@ -17,7 +17,6 @@ while True:
 
     while True:
         data = tcpCliSock.recv(BUFSIZ).decode()
-        print(data)
         if not data:
             break
         print(('[%s] %s' % (ctime(), data)).encode())
